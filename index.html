@@ -1,0 +1,1071 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>We Go Gym - Home</title>
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- AOS (Animate On Scroll) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" />
+  <!-- Swiper.js -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.css" />
+  <!-- GLightbox -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css" />
+  <style>
+    /* Shaban-style header */
+    .shaban-header {
+      position: fixed;
+      top: 0; left: 0; width: 100%;
+      background: rgba(20, 20, 20, 0.85);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 3vw;
+      height: 80px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.18);
+    }
+    .shaban-logo {
+      font-family: 'Oswald', Arial, sans-serif;
+      font-size: 2.2rem;
+      color: #fff;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .shaban-nav {
+      display: flex;
+      gap: 2.5rem;
+      align-items: center;
+      margin: 0 auto;
+    }
+    .shaban-nav a {
+      color: #fff;
+      font-family: 'Oswald', Arial, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      text-decoration: none;
+      transition: color 0.3s, border-bottom 0.3s;
+      padding-bottom: 2px;
+      border-bottom: 2px solid transparent;
+    }
+    .shaban-nav a:hover, .shaban-nav a.active {
+      color: #ff2222;
+      border-bottom: 2px solid #ff2222;
+    }
+    .shaban-contact-btn {
+      background: #ff2222;
+      color: #fff;
+      border: 2px solid #fff;
+      font-family: 'Oswald', Arial, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      border-radius: 0;
+      padding: 0.7rem 2.2rem;
+      margin-left: 2rem;
+      transition: background 0.3s, color 0.3s, border 0.3s;
+      cursor: pointer;
+      box-shadow: 0 2px 12px rgba(255,34,34,0.10);
+    }
+    .shaban-contact-btn:hover {
+      background: #fff;
+      color: #ff2222;
+      border: 2px solid #ff2222;
+    }
+    /* Shaban-style hero */
+    .shaban-hero {
+      position: relative;
+      width: 100vw;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      background: url('img/pexels-tima-miroshnichenko-5327455.jpg') center/cover no-repeat;
+      overflow: hidden;
+    }
+    .shaban-hero-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(120deg 40%, rgba(0,0,0,0.7) 100%);
+      clip-path: polygon(0 0, 70% 0, 100% 100%, 0% 100%);
+      z-index: 1;
+    }
+    .shaban-hero-content {
+      position: relative;
+      z-index: 2;
+      margin-left: 6vw;
+      margin-top: 8vh;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      max-width: 700px;
+    }
+    .shaban-hero-title {
+      font-family: 'Oswald', Arial, sans-serif;
+      font-size: 3.5rem;
+      font-weight: 900;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: transparent;
+      -webkit-text-stroke: 2px #fff;
+      text-stroke: 2px #fff;
+      margin-bottom: 1.2rem;
+      line-height: 1.1;
+      animation: slideInLeft 1.2s cubic-bezier(0.77,0,0.175,1);
+    }
+    .shaban-hero-subtitle {
+      font-family: 'Oswald', Arial, sans-serif;
+      font-size: 3rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      color: #fff;
+      margin-bottom: 2.2rem;
+      line-height: 1.1;
+      animation: fadeInUp 1.2s 0.7s cubic-bezier(0.77,0,0.175,1) both;
+    }
+    @keyframes slideInLeft {
+      0% { opacity: 0; transform: translateX(-80px); }
+      100% { opacity: 1; transform: translateX(0); }
+    }
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(60px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    @media (max-width: 900px) {
+      .shaban-hero-title { font-size: 2.2rem; }
+      .shaban-hero-subtitle { font-size: 1.7rem; }
+      .shaban-hero-content { margin-left: 2vw; }
+      .shaban-header { flex-direction: column; height: auto; padding: 0.5rem 1vw; }
+    }
+    .training-feature-container {
+      display: flex;
+      width: 100vw;
+      max-width: 100vw;
+      min-height: 480px;
+      margin: 0;
+      padding: 0;
+    }
+    .training-split {
+      flex: 1 1 0;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 480px;
+      overflow: hidden;
+    }
+   
+    .training-overlay {
+      position: absolute;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: linear-gradient(120deg, rgba(0,0,0,0.82) 60%, rgba(0,0,0,0.7) 100%);
+      z-index: 1;
+    }
+    .training-content {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      text-align: center;
+      max-width: 480px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    .training-content h2 {
+      font-family: 'Oswald', Arial, sans-serif;
+      font-size: 2.8rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 1.2rem;
+      color: #fff;
+      text-shadow: 0 4px 24px rgba(0,0,0,0.45);
+    }
+    .training-content p {
+      font-size: 1.18rem;
+      color: #fff;
+      margin-bottom: 2.2rem;
+      line-height: 1.5;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.35);
+    }
+    .training-btn {
+      font-family: 'Oswald', Arial, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 1rem 2.5rem;
+      border-radius: 0;
+      border: 2px solid #fff;
+      background: transparent;
+      color: #fff;
+      transition: background 0.3s, color 0.3s, border 0.3s;
+      cursor: pointer;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+      display: inline-block;
+    }
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 2px solid #fff;
+    }
+    .btn-outline:hover {
+      background: #fff;
+      color: #ff2222;
+      border: 2px solid #ff2222;
+    }
+    .btn-filled {
+      background: #ff2222;
+      color: #fff;
+      border: 2px solid #ff2222;
+    }
+    .btn-filled:hover {
+      background: #fff;
+      color: #ff2222;
+      border: 2px solid #ff2222;
+    }
+    @media (max-width: 900px) {
+      .training-feature-container {
+        flex-direction: column;
+        min-height: unset;
+      }
+      .training-split {
+        min-height: 320px;
+      }
+      .training-content h2 {
+        font-size: 2rem;
+      }
+    }
+    .fade-up {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: opacity 0.9s cubic-bezier(0.77,0,0.175,1), transform 0.9s cubic-bezier(0.77,0,0.175,1);
+    }
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .training-split.training-personal {
+      background: url('img/pexels-victorfreitas-931321.jpg') center/cover no-repeat;
+    }
+    .training-split.training-group {
+      background: url('img/pexels-leonardho-1552242.jpg') center/cover no-repeat;
+    }
+    .graph-section {
+      width: 100vw;
+      background: #fff;
+      padding: 3rem 0 2rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .graph-container {
+      background: #fff;
+      border-radius: 18px;
+      box-shadow: 0 4px 32px rgba(30,34,90,0.10);
+      padding: 2.5rem 2rem 2rem 2rem;
+      max-width: 700px;
+      width: 100%;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .graph-title {
+      font-family: 'Oswald', Arial, sans-serif;
+      font-size: 2rem;
+      color: #ff2222;
+      margin-bottom: 2rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    @media (max-width: 700px) {
+      .graph-container { padding: 1.2rem 0.5rem; }
+      #clientsLineChart { width: 100% !important; height: 220px !important; }
+    }
+    .classes-section {
+      background: #f7f8fa;
+      padding: 4rem 0 3rem 0;
+      width: 100vw;
+      max-width: 100vw;
+    }
+    .classes-header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 1200px;
+      margin: 0 auto 2.5rem auto;
+      gap: 2rem;
+      padding: 0 2vw;
+    }
+    .classes-label {
+      color: #d5542d;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+    .classes-title {
+      font-family: 'Oswald', Arial, sans-serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #111a2c;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+    .classes-title .highlight {
+      color: #d5542d;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+    .classes-desc-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 1.2rem;
+      min-width: 260px;
+    }
+    .classes-desc {
+      color: #222;
+      font-size: 1.15rem;
+      margin-bottom: 0.5rem;
+      max-width: 340px;
+      text-align: right;
+    }
+    .classes-btn {
+      background: #d5542d;
+      color: #111a2c;
+      font-family: 'Oswald', Arial, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 30px;
+      padding: 0.9rem 2.2rem;
+      text-transform: capitalize;
+      box-shadow: 0 2px 12px rgba(67,233,0,0.10);
+      transition: background 0.3s, color 0.3s, transform 0.3s;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      display: inline-block;
+    }
+    .classes-btn:hover {
+      background: #d5542d;
+      color: #fff;
+      transform: scale(1.06);
+    }
+    .classes-cards-row {
+      display: flex;
+      gap: 2.2rem;
+      justify-content: center;
+      align-items: stretch;
+      max-width: 1200px;
+      margin: 0 auto;
+      flex-wrap: wrap;
+      padding: 0 2vw;
+    }
+    .class-card {
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
+      min-width: 220px;
+      max-width: 270px;
+      flex: 1 1 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: box-shadow 0.4s cubic-bezier(0.77,0,0.175,1), transform 0.4s cubic-bezier(0.77,0,0.175,1);
+      opacity: 0;
+      transform: translateY(60px);
+    }
+    .class-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .class-card-img-wrap {
+      width: 220px;
+      height: 180px;
+      margin-bottom: -60px;
+      z-index: 2;
+      border-radius: 18px;
+      box-shadow: 0 8px 32px rgba(30,34,90,0.18);
+      background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+    }
+    .class-card-img-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 18px;
+      display: block;
+    }
+    .class-card-box {
+      margin-top: -40px;
+      padding-top: 3.5rem;
+    }
+    .class-card-title {
+      font-family: 'Oswald', Arial, sans-serif;
+      font-size: 1.25rem;
+      font-weight: 900;
+      color: #111a2c;
+      margin-bottom: 0.5rem;
+      letter-spacing: 1px;
+    }
+    .class-card-desc {
+      color: #444;
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+    @media (max-width: 900px) {
+      .classes-header, .classes-cards-row { flex-direction: column; align-items: center; }
+      .classes-header { gap: 1.2rem; }
+      .classes-desc-btn { align-items: center; text-align: center; }
+      .classes-desc { text-align: center; }
+      .classes-cards-row { gap: 1.2rem; }
+    }
+    .assessment-section {
+      width: 100vw;
+      background: #f7f8fa;
+      padding: 4rem 0 3rem 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .assessment-card {
+      display: flex;
+      flex-wrap: wrap;
+      background: #fff;
+      border-radius: 36px;
+      box-shadow: 0 8px 40px rgba(30,34,90,0.10);
+      max-width: 1200px;
+      width: 100%;
+      overflow: hidden;
+      min-height: 380px;
+      margin: 0 auto;
+      position: relative;
+    }
+    .assessment-left {
+      flex: 1 1 340px;
+      padding: 3.5rem 2.5rem 3.5rem 3.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      z-index: 2;
+    }
+    .assessment-label {
+      color: #d5542d;
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+      letter-spacing: 1px;
+    }
+    .assessment-title {
+      font-family: 'Oswald', Arial, sans-serif;
+      font-size: 2.5rem;
+      font-weight: 900;
+      color: #111a2c;
+      text-transform: uppercase;
+      margin-bottom: 1.1rem;
+      letter-spacing: 1px;
+    }
+    .assessment-title .highlight {
+      color: #d5542d;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+    .assessment-desc {
+      color: #222;
+      font-size: 1.15rem;
+      margin-bottom: 2rem;
+      max-width: 420px;
+    }
+    .assessment-btn {
+      background: #d5542d;
+      color: #111a2c;
+      font-family: 'Oswald', Arial, sans-serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 30px;
+      padding: 0.9rem 2.2rem;
+      text-transform: capitalize;
+      box-shadow: 0 2px 12px rgba(67,233,0,0.10);
+      transition: background 0.3s, color 0.3s, transform 0.3s;
+      cursor: pointer;
+      margin-top: 0.5rem;
+      display: inline-block;
+      width: fit-content;
+    }
+    .assessment-btn:hover {
+      background: #d5542d;
+      color: #fff;
+      transform: scale(1.06);
+    }
+    .assessment-right {
+      flex: 1 1 400px;
+      min-width: 320px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+    .assessment-bg-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 320px;
+      border-radius: 0 36px 36px 0;
+      filter: brightness(0.82);
+    }
+    .assessment-callout {
+      position: absolute;
+      top: 18%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      background: rgba(30,34,90,0.72);
+      border-radius: 18px;
+      box-shadow: 0 4px 24px rgba(30,34,90,0.18);
+      padding: 1.2rem 2rem 1.2rem 2rem;
+      display: flex;
+      align-items: flex-start;
+      gap: 1.2rem;
+      min-width: 260px;
+      z-index: 3;
+      color: #fff;
+      opacity: 0;
+      transform: translate(-50%, 40px);
+      transition: opacity 0.8s cubic-bezier(0.77,0,0.175,1), transform 0.8s cubic-bezier(0.77,0,0.175,1);
+    }
+    .assessment-callout.visible {
+      opacity: 1;
+      transform: translate(-50%, 0);
+    }
+    .assessment-dot {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background: #ffffff;
+      margin-top: 0.3rem;
+      box-shadow: 0 0 0 4px rgba(67,233,0,0.12);
+      flex-shrink: 0;
+    }
+    .assessment-callout-title {
+      font-family: 'Oswald', Arial, sans-serif;
+      font-size: 1.15rem;
+      font-weight: 900;
+      color: #fff;
+      margin-bottom: 0.3rem;
+      letter-spacing: 1px;
+    }
+    .assessment-callout-desc {
+      color: #fff;
+      font-size: 1rem;
+      margin-bottom: 0;
+    }
+    @media (max-width: 900px) {
+      .assessment-card { flex-direction: column; border-radius: 24px; }
+      .assessment-left, .assessment-right { padding: 2rem 1rem; }
+      .assessment-bg-img { border-radius: 0 0 24px 24px; }
+      .assessment-callout { min-width: 180px; padding: 1rem 1rem; }
+    }
+  </style>
+</head>
+<body class="black-bg">
+   
+   <header class="shaban-header">
+    <div class="shaban-logo">GYM</div>
+    <nav class="shaban-nav">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+  <main style="padding-top: 80px;">
+    <section class="shaban-hero" id="home">
+      <div class="shaban-hero-overlay"></div>
+      <div class="shaban-hero-content">
+        <div class="shaban-hero-title">THIS IS Shaban</div>
+        <div class="shaban-hero-subtitle">GYM TRAINER</div>
+      </div>
+    </section>
+     
+    <section class="training-feature-container">
+      <div class="training-split training-personal">
+        <div class="training-overlay"></div>
+        <div class="training-content fade-up">
+          <h2>PERSONAL TRAINING</h2>
+          <p>You'll look at graphs and charts in Task One, how to approach the task and<br>the language needed for a successful answer.</p>
+         
+        </div>
+      </div>
+      <div class="training-split training-group">
+        <div class="training-overlay"></div>
+        <div class="training-content fade-up">
+          <h2>GROUP TRAINING</h2>
+          <p>You'll look at graphs and charts in Task One, how to approach the task and<br>the language needed for a successful answer.</p>
+     
+        </div>
+      </div>
+    </section>
+    <section class="graph-section">
+      <div class="graph-container">
+        <h2 class="graph-title">Clients per Month</h2>
+        <canvas id="clientsLineChart" width="600" height="300"></canvas>
+      </div>
+    </section>
+    <section class="classes-section">
+      <div class="classes-header">
+        <div>
+          <div class="classes-label">Our Classes</div>
+          <h2 class="classes-title">EXPLORE OUR <span class="highlight">PERSONALIZED</span> FITNESS CLASSES</h2>
+        </div>
+        <div class="classes-desc-btn">
+          <div class="classes-desc">Choose the training style that fits your body, lifestyle, and goals — from strength to stretch.</div>
+       
+        </div>
+      </div>
+      <div class="classes-cards-row">
+        <div class="class-card fade-up">
+          <div class="class-card-img-wrap">
+            <img src="img/pexels-jonathanborba-13885343.jpg" alt="Strength Training">
+          </div>
+          <div class="class-card-box">
+            <div class="class-card-title">Strength Training</div>
+            <div class="class-card-desc">Build lean muscle and boost metabolism with progressive weight-based workouts tailored to your experience level.</div>
+          </div>
+        </div>
+        <div class="class-card fade-up">
+          <div class="class-card-img-wrap">
+            <img src="img/pexels-arun-kachhwaha-860990-29495729.jpg" alt="Yoga & Mobility">
+          </div>
+          <div class="class-card-box">
+            <div class="class-card-title">Yoga & Mobility</div>
+            <div class="class-card-desc">Improve flexibility, balance, and mental clarity with guided sessions designed for all levels—perfect for recovery days.</div>
+          </div>
+        </div>
+        <div class="class-card fade-up">
+          <div class="class-card-img-wrap">
+            <img src="img/pexels-marcuschanmedia-18060149.jpg" alt="HIIT & Fat Burn">
+          </div>
+          <div class="class-card-box">
+            <div class="class-card-title">HIIT & Fat Burn</div>
+            <div class="class-card-desc">Torch calories fast with high-intensity interval training customized to your fitness level and time availability.</div>
+          </div>
+        </div>
+        <div class="class-card fade-up">
+          <div class="class-card-img-wrap">
+            <img src="img/pexels-tima-miroshnichenko-6388364.jpg" alt="Cardio Conditioning">
+          </div>
+          <div class="class-card-box">
+            <div class="class-card-title">Cardio Conditioning</div>
+            <div class="class-card-desc">Heart-pumping routines that enhance endurance, agility, and cardiovascular health—both indoors and outdoors.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="assessment-section">
+      <div class="assessment-card">
+        <div class="assessment-left fade-up">
+          <div class="assessment-label">Why this gym</div>
+          <h2 class="assessment-title">PERSONALIZED <span class="highlight">FITNESS</span> SIMPLIFIED</h2>
+          <div class="assessment-desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut elit tellus, luctus nec ullamcorper mattis, pulvinar dapibus leo.</div>
+          <a href="#" class="assessment-btn">Get Started</a>
+        </div>
+        <div class="assessment-right fade-up">
+          <video class="assessment-bg-img" src="img/4438072-hd_1920_1080_25fps.mp4" autoplay loop muted playsinline></video>
+          <div class="assessment-callout">
+            <div class="assessment-dot"></div>
+            <div>
+              <div class="assessment-callout-title">Take the Risk</div>
+              <div class="assessment-callout-desc">Focus your goals, lifestyle, and fitness level for a better futute</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- About Us Section (Full Black Background, Centered Heading, Left Subheading) -->
+    <section class="about-section-black fade-up" id="about">
+      <div class="about-black-center">
+        <h1 class="about-black-title">ABOUT</h1>
+      </div>
+      <div class="about-black-left">
+        <h4 class="about-title">Fitness World</h4>
+        <p class="fitness-world-desc">
+          We're not just another fitness platform. We're your personalized partner in transformation. Here, we combine cutting-edge technology with real human expertise to deliver fitness plans that adapt to your lifestyle, goals, and progress. we combine cutting-edge technology with us.
+        </p>
+        <h4 class="about-title">Our Mission</h4>
+        <p class="fitness-world-desc">
+          We're here to eliminate guesswork, overwhelm, and one-size-fits-all programs helping people build confidence, strength, and a healthier lifestyle on their own terms. We believe fitness should fit into your life not the other way around.
+        </p>
+        <h4 class="about-title">Our Vision</h4>
+        <p class="fitness-world-desc">
+          We envision a future where anyone, anywhere can take control of their health with the support of real coaches, intelligent tools, and a community that cares.
+        </p>
+      </div>
+    </section>
+    <!-- End About Us Section -->
+
+    <!-- Gallery Carousel Section -->
+    <section class="gallery-carousel-section fade-up" id="gallery">
+      <div class="gallery-carousel-container">
+        <h2 class="gallery-carousel-title">Gallery</h2>
+        <div class="swiper gallery-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide"><img src="img/pexels-jonathanborba-13885343.jpg" alt="Gallery 1"></div>
+            <div class="swiper-slide"><img src="img/pexels-arun-kachhwaha-860990-29495729.jpg" alt="Gallery 2"></div>
+            <div class="swiper-slide"><img src="img/pexels-leonardho-1552242.jpg" alt="Gallery 3"></div>
+            <div class="swiper-slide"><img src="img/pexels-marcuschanmedia-18060149.jpg" alt="Gallery 4"></div>
+            <div class="swiper-slide"><img src="img/pexels-tima-miroshnichenko-6388364.jpg" alt="Gallery 5"></div>
+          </div>
+          <div class="swiper-pagination"></div>
+        </div>
+      </div>
+    </section>
+    <!-- End Gallery Carousel Section -->
+
+    <!-- Contact Section (Modern Two-Column, White) -->
+    <section class="contact-clean-section fade-up" id="contact">
+      <div class="contact-clean-container">
+        <div class="contact-clean-left">
+          <h1 class="contact-clean-main">Contact</h1>
+          <h2 class="contact-clean-heading">
+            FEEL FREE TO<br>ASK<br>ANYTHING
+          </h2>
+          <p class="contact-clean-desc">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse interdum nulla eu posuere scelerisque.
+          </p>
+          <div class="contact-clean-info">
+            <div>
+              <p>251 Purple Sunset Avenue<br>New Delhi, BXY 92101<br>shabanlifts@example.com</p>
+            </div>
+          </div>
+        </div>
+        <form class="contact-clean-form" id="contact-form-clean">
+          <div class="contact-clean-row">
+            <input type="text" name="name" placeholder="Your full name" required>
+            <input type="email" name="email" placeholder="E-mail address" required>
+          </div>
+          <input type="text" name="subject" placeholder="Subject" required>
+          <textarea name="message" placeholder="Drop us a few lines here..." required></textarea>
+          <button type="submit">Send Us a Message</button>
+        </form>
+      </div>
+    </section>
+    <!-- End Contact Section -->
+
+    </div>
+    <!-- Gallery Section -->
+   
+  </main>
+  <!-- Powerlift-Style Footer Section -->
+  <footer class="powerlift-footer">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <div>GYM</div>
+        <p class="footer-desc">This Gym is a champ in providing its users with absolutely everything a fitness or gym site needs.</p>
+        <div class="footer-socials">
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+        </div>
+      </div>
+     
+    
+      <div class="footer-col footer-location">
+        <h3 class="footer-heading">Locations</h3>
+        <div class="footer-map">
+          <img src="img/world-map-with-black-and-white-outlineblank-map-of-world-map-png-black-11563513243npnbbvzmbf-removebg-preview.png" alt="Map" style="width:100%;max-width:280px;border-radius:8px;">
+        </div>
+        <div class="footer-address">251 Purple Sunset Avenue<br>New Delhi, BXY 92101</div>
+      </div>
+      <div class="footer-col footer-hours">
+        <h3 class="footer-heading">Working Hours</h3>
+        <div class="footer-hours-list">
+          <div>Monday – Friday:<br><span>07:00 – 21:00</span></div>
+          <div>Saturday:<br><span>07:00 – 16:00</span></div>
+          <div>Sunday Closed</div>
+        </div>
+        <a href="#" class="footer-more-btn">More Here <i class="fas fa-arrow-up-right-from-square"></i></a>
+      </div>
+    </div>
+  </footer>
+  <div class="section-container animate-container">
+    <section class="contact-section" id="contact">
+       <form class="contact-form animate-card" id="contact-form"></form>
+    </section>
+  </div>
+  <p class="all-rights-tag"><a href="https://opustechstudios.com" target="_blank" rel="noopener">All rights reserved by opustechstudios.com</a></p>
+  
+  <!-- End Powerlift-Style Footer Section -->
+  <!-- Plugin JS -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/just-validate@4.2.0/dist/just-validate.production.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    // AOS
+    AOS.init({ once: true, duration: 900, offset: 80 });
+    // GLightbox
+    const lightbox = GLightbox({ selector: '.glightbox' });
+    // Swiper
+    new Swiper('.testimonials-swiper', {
+      loop: true,
+      pagination: { el: '.swiper-pagination', clickable: true },
+      slidesPerView: 1,
+      spaceBetween: 30,
+      autoplay: { delay: 4000 },
+    });
+    // Gallery Swiper
+    new Swiper('.gallery-swiper', {
+      loop: true,
+      autoplay: { delay: 2500, disableOnInteraction: false },
+      slidesPerView: 1,
+      spaceBetween: 0,
+      pagination: { el: '.gallery-swiper .swiper-pagination', clickable: true },
+      effect: 'slide',
+      speed: 700,
+    });
+    // Just-validate
+    new window.JustValidate('#contact-form', {
+      rules: {
+        name: { required: true, minLength: 2 },
+        email: { required: true, email: true },
+        message: { required: true, minLength: 5 }
+      },
+      focusInvalidField: true,
+      errorFieldCssClass: 'is-invalid',
+      errorLabelStyle: { color: '#e53935', fontSize: '0.95em' }
+    });
+    // Fade-up animation for training sections
+    document.addEventListener('DOMContentLoaded', function() {
+      const fadeUps = document.querySelectorAll('.fade-up');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        fadeUps.forEach(el => observer.observe(el));
+      } else {
+        // Fallback for old browsers
+        fadeUps.forEach(el => el.classList.add('visible'));
+      }
+    });
+    // Animate Chart.js line graph only when in view
+    document.addEventListener('DOMContentLoaded', function() {
+      var chartDrawn = false;
+      var ctx = document.getElementById('clientsLineChart');
+      if (ctx && 'IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting && !chartDrawn) {
+              chartDrawn = true;
+              new Chart(ctx, {
+                type: 'line',
+                data: {
+                  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                  datasets: [{
+                    label: 'Males',
+                    data: [12, 19, 15, 22, 18, 25],
+                    borderColor: '#ff2222',
+                    backgroundColor: 'rgba(255,34,34,0.08)',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#fff',
+                    pointBorderColor: '#ff2222',
+                    pointRadius: 6,
+                    pointHoverRadius: 9,
+                    tension: 0.4,
+                    fill: false
+                  }, {
+                    label: 'Females',
+                    data: [10, 14, 13, 17, 16, 20],
+                    borderColor: '#2196f3',
+                    backgroundColor: 'rgba(33,150,243,0.08)',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#fff',
+                    pointBorderColor: '#2196f3',
+                    pointRadius: 6,
+                    pointHoverRadius: 9,
+                    tension: 0.4,
+                    fill: false
+                  }, {
+                    label: 'Age 18-25',
+                    data: [8, 12, 10, 15, 13, 18],
+                    borderColor: '#43a047',
+                    backgroundColor: 'rgba(67,160,71,0.08)',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#fff',
+                    pointBorderColor: '#43a047',
+                    pointRadius: 6,
+                    pointHoverRadius: 9,
+                    tension: 0.4,
+                    fill: false
+                  }, {
+                    label: 'Age 26-40',
+                    data: [6, 9, 8, 12, 11, 14],
+                    borderColor: '#ff9800',
+                    backgroundColor: 'rgba(255,152,0,0.08)',
+                    borderWidth: 3,
+                    pointBackgroundColor: '#fff',
+                    pointBorderColor: '#ff9800',
+                    pointRadius: 6,
+                    pointHoverRadius: 9,
+                    tension: 0.4,
+                    fill: false
+                  }]
+                },
+                options: {
+                  responsive: true,
+                  plugins: {
+                    legend: { display: true, labels: { font: { family: 'Oswald', size: 16 } } },
+                    tooltip: { enabled: true }
+                  },
+                  scales: {
+                    x: {
+                      grid: { display: false },
+                      ticks: { color: '#222', font: { family: 'Oswald', size: 16 } }
+                    },
+                    y: {
+                      grid: { color: '#eee' },
+                      ticks: { color: '#222', font: { family: 'Oswald', size: 16 } },
+                      beginAtZero: true
+                    }
+                  },
+                  animation: {
+                    duration: 1200,
+                    easing: 'easeOutQuart'
+                  }
+                }
+              });
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.2 });
+        observer.observe(ctx);
+      } else if (ctx) {
+        // Fallback: draw immediately
+        new Chart(ctx, {
+          type: 'line',
+          data: {
+            labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+            datasets: [{
+              label: 'Males',
+              data: [12, 19, 15, 22, 18, 25],
+              borderColor: '#ff2222',
+              backgroundColor: 'rgba(255,34,34,0.08)',
+              borderWidth: 3,
+              pointBackgroundColor: '#fff',
+              pointBorderColor: '#ff2222',
+              pointRadius: 6,
+              pointHoverRadius: 9,
+              tension: 0.4,
+              fill: false
+            }, {
+              label: 'Females',
+              data: [10, 14, 13, 17, 16, 20],
+              borderColor: '#2196f3',
+              backgroundColor: 'rgba(33,150,243,0.08)',
+              borderWidth: 3,
+              pointBackgroundColor: '#fff',
+              pointBorderColor: '#2196f3',
+              pointRadius: 6,
+              pointHoverRadius: 9,
+              tension: 0.4,
+              fill: false
+            }, {
+              label: 'Age 18-25',
+              data: [8, 12, 10, 15, 13, 18],
+              borderColor: '#43a047',
+              backgroundColor: 'rgba(67,160,71,0.08)',
+              borderWidth: 3,
+              pointBackgroundColor: '#fff',
+              pointBorderColor: '#43a047',
+              pointRadius: 6,
+              pointHoverRadius: 9,
+              tension: 0.4,
+              fill: false
+            }, {
+              label: 'Age 26-40',
+              data: [6, 9, 8, 12, 11, 14],
+              borderColor: '#ff9800',
+              backgroundColor: 'rgba(255,152,0,0.08)',
+              borderWidth: 3,
+              pointBackgroundColor: '#fff',
+              pointBorderColor: '#ff9800',
+              pointRadius: 6,
+              pointHoverRadius: 9,
+              tension: 0.4,
+              fill: false
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: { display: true, labels: { font: { family: 'Oswald', size: 16 } } },
+              tooltip: { enabled: true }
+            },
+            scales: {
+              x: {
+                grid: { display: false },
+                ticks: { color: '#222', font: { family: 'Oswald', size: 16 } }
+              },
+              y: {
+                grid: { color: '#eee' },
+                ticks: { color: '#222', font: { family: 'Oswald', size: 16 } },
+                beginAtZero: true
+              }
+            },
+            animation: {
+              duration: 1200,
+              easing: 'easeOutQuart'
+            }
+          }
+        });
+      }
+    });
+    // Fade-up for assessment section
+    document.addEventListener('DOMContentLoaded', function() {
+      const assessmentFadeUps = document.querySelectorAll('.assessment-left.fade-up, .assessment-right.fade-up');
+      const assessmentCallout = document.querySelector('.assessment-callout');
+      if ('IntersectionObserver' in window) {
+        const observer = new IntersectionObserver((entries, obs) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              if (assessmentCallout && entry.target.classList.contains('assessment-right')) {
+                setTimeout(() => assessmentCallout.classList.add('visible'), 300);
+              }
+              obs.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.15 });
+        assessmentFadeUps.forEach(el => observer.observe(el));
+      } else {
+        assessmentFadeUps.forEach(el => el.classList.add('visible'));
+        if (assessmentCallout) assessmentCallout.classList.add('visible');
+      }
+    });
+  </script>
+  <script src="js/animations.js"></script>
+</body>
+</html> 
